@@ -20,4 +20,14 @@ defmodule AcmeWeb.ProductView do
       unit_cost: product.unit_cost
     }
   end
+
+  def render("total_inventory_cost.json", %{product: product}) do
+    %{data: 
+      Map.put_new(
+        render_one(product, ProductView, "product.json"),
+        :total_inventory_cost,
+        product.total_inventory_cost
+        )
+    }
+  end
 end
