@@ -18,4 +18,9 @@ defmodule Acme.Products.Product do
     |> cast(attrs, [:name, :description, :category, :quantity, :unit_cost])
     |> validate_required([:name, :description, :category, :quantity, :unit_cost])
   end
+
+  @doc false
+  def total_inventory_cost(product) do
+    product.unit_cost*product.quantity
+  end
 end
