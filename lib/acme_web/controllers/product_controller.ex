@@ -43,7 +43,7 @@ defmodule AcmeWeb.ProductController do
 
   def total_inventory_cost(conn, %{"id" => id}) do
     product_struct = Products.get_product!(id)
-    product = Map.put_new(product_struct, :total_inventory_cost, Product.total_inventory_cost(product_struct))
+    product = Map.merge(product_struct, %{total_inventory_cost: Product.total_inventory_cost(product_struct)})
     render(conn, "total_inventory_cost.json", product: product)
   end
 end

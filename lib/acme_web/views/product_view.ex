@@ -23,11 +23,10 @@ defmodule AcmeWeb.ProductView do
 
   def render("total_inventory_cost.json", %{product: product}) do
     %{data: 
-      Map.put_new(
+      Map.merge(
         render_one(product, ProductView, "product.json"),
-        :total_inventory_cost,
-        product.total_inventory_cost
-        )
+        %{total_inventory_cost: product.total_inventory_cost}
+      )
     }
   end
 end
