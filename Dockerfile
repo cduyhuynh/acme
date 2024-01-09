@@ -1,5 +1,8 @@
 FROM elixir:1.12
 
+RUN apt-get update\
+  && apt-get install -y vim inotify-tools
+
 RUN mkdir /acme
 COPY . /acme
 WORKDIR /acme

@@ -8,7 +8,7 @@ services:
       PGUSER: postgres
       PGPASSWORD: postgres
       PGHOST: acme_db
-    command: sh -c "mix ecto.setup & mix phx.server"
+    command: sh -c "mix phx.server"
     ports:
       - 4000:4000
     container_name: acme
