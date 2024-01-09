@@ -23,6 +23,7 @@ defmodule AcmeWeb.Router do
   scope "/api", AcmeWeb do
     pipe_through :api
 
+    get "/products/:id/total_inventory_cost", ProductController, :total_inventory_cost
     resources "/products", ProductController, except: [:new, :edit]
   end
 
